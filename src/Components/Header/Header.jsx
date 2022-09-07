@@ -8,10 +8,12 @@ const Header = () => {
   const [genre, setGenre] = useState(null);
   const [page, setPage] = useState(1);
 
+  useEffect(() => {
+    GET(page, genre);
+  }, [page, genre]);
+
   const handleChange = (e) => {
     setGenre(e.target.value);
-    GET(page, genre);
-    
   };
 
   return (
