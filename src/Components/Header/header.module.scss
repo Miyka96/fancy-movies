@@ -1,0 +1,20 @@
+.header{
+    display: flex;
+    flex-wrap: wrap;
+    height: 80px;
+    width: 100%;
+    gap: 20px;
+    color: white;
+    background-color:black;
+    backdrop-filter: blur(10px);
+
+    .logo, nav, .searchBar {
+        border: 1px solid red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    } 
+    nav{
+        flex-grow: 1;
+    }
+}
