@@ -12,9 +12,11 @@ const Carousel = (data) => {
 
     return(
         <div className={styles.carousel}>
-            {/* non riesco ad accedere al titolo (come test, in realtà mi serve la img), da fixare domani */}
-            {/* // esempio rotto ====> {console.log(data.data[currentIndex].original_title)} <======= */}
-            {console.log(data.data[currentIndex])}
+            {
+                data.data[currentIndex]&&<img src={`https://image.tmdb.org/t/p/w1280${data.data[currentIndex].backdrop_path}`}/>
+            }
+            
+            {(data.data[currentIndex]&&data.data[currentIndex].title)}
         </div>
     )
 }

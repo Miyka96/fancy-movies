@@ -2,4 +2,9 @@
     height: 550px;
     width: 100%;
     background-color:slategray;
+    overflow:hidden;
+    object-fit:cover;
+    img{
+        height: 100%;
+    }
 }
