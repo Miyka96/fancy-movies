@@ -1,19 +1,9 @@
 import styles from "./header.module.scss";
-import Carousel from "../Carousel/Carousel";
-import { useState, useEffect } from "react";
-import { GET } from "../../utils/api";
 
-const Header = () => {
-
-  const [genre, setGenre] = useState(null);
-  const [page, setPage] = useState(1);
-
-  useEffect(() => {
-    GET(page, genre);
-  }, [page, genre]);
+const Header = ({onChange}) => {
 
   const handleChange = (e) => {
-    setGenre(e.target.value);
+    onChange(e);
   };
 
   return (
@@ -23,7 +13,7 @@ const Header = () => {
         <nav>nav</nav>
 
         <select onChange={handleChange}>
-          <option value="null">All Genres</option>
+          <option value="null">All</option>
           <option value="28">Action</option>
           <option value="12">Adventure</option>
           <option value="16">Animation</option>
@@ -37,7 +27,6 @@ const Header = () => {
 
         <div className={styles.searchBar}>search</div>
       </div>
-      <Carousel />
     </>
   );
 };
