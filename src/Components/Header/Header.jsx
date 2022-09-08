@@ -1,4 +1,5 @@
 import styles from "./header.module.scss";
+import logo from "../../Assets/Images/logoipsum-221.svg"
 
 const Header = ({onChange}) => {
 
@@ -9,7 +10,9 @@ const Header = ({onChange}) => {
   return (
     <>
       <div className={styles.header}>
-        <div className={styles.logo}>logo</div>
+        <div className={styles.logo}>
+          <img src={logo}/>
+        </div>
         <nav>nav</nav>
 
         <select onChange={handleChange}>

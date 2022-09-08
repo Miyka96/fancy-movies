@@ -5,17 +5,24 @@
     width: 100%;
     gap: 20px;
     color: white;
-    background-color:rgba(0,0,0,0.5);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(2.5px);
+    position: fixed;
     z-index:3;
 
     .logo, nav, .searchBar {
-        border: 1px solid red;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-around;
+        margin: 0 20px;
     } 
     nav{
         flex-grow: 1;
+    }
+    .logo{
+        img{
+            filter: sepia(100%) saturate(600%) 
+            invert(100%) hue-rotate(140deg) brightness(65%) 
+            contrast(250%) drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+        }
     }
 }

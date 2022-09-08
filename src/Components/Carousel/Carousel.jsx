@@ -40,14 +40,6 @@ const Carousel = ({data}) => {
                 </SwiperSlide>
             )}
         </Swiper>
-
-        // <div className={styles.carousel}>
-            // {
-            //     data[currentIndex]&&<img src={`https://image.tmdb.org/t/p/w1280${data[currentIndex].backdrop_path}`}/>
-            // }
-            
-        //     {(data[currentIndex]&&console.log(currentIndex,data[currentIndex].title))}
-        // </div>
     )
 }
 
