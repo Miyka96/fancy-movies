@@ -1,23 +1,53 @@
-import styles from './carousel.module.scss';
-import {useState,useEffect} from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "swiper/css/effect-fade";
+import {EffectFade, Autoplay, Pagination, Navigation } from "swiper";
+import styles from './carousel.module.scss'
 
-const Carousel = (data) => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const carouselScroll = () => {
-        setCurrentIndex(prev=> prev === data.data.length - 1 ? prev = 0 : prev +1)
-    }
-    useEffect(() => {
-        setInterval(() => {carouselScroll()},5000)
-    },[])
+const Carousel = ({data}) => {
 
     return(
-        <div className={styles.carousel}>
-            {
-                data.data[currentIndex]&&<img src={`https://image.tmdb.org/t/p/w1280${data.data[currentIndex].backdrop_path}`}/>
-            }
+        <Swiper
+        style={{
+            "--swiper-navigation-color": "#fff",
+            "--swiper-pagination-color": "#fff",
+          }}
+        slidesPerView={1}
+        spaceBetween={30}
+        effect={"fade"}
+        slidesPerGroup={1}
+        loop={true}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[EffectFade, Pagination, Navigation, Autoplay]}
+        autoplay={{
+          delay: 3500,
+          disableOnInteraction: false,
+        }}
+        >
+            {data.map(item => 
+                <SwiperSlide>
+                    <div className={styles.slideContainer}>
+                        <div className={styles.slideTitle}>
+                            {item.title}
+                        </div>
+                        <img className={styles.slideImg} src={`https://image.tmdb.org/t/p/w1280${item.backdrop_path}`}/> 
+                    </div>
+                </SwiperSlide>
+            )}
+        </Swiper>
+
+        // <div className={styles.carousel}>
+            // {
+            //     data[currentIndex]&&<img src={`https://image.tmdb.org/t/p/w1280${data[currentIndex].backdrop_path}`}/>
+            // }
             
-            {(data.data[currentIndex]&&data.data[currentIndex].title)}
-        </div>
+        //     {(data[currentIndex]&&console.log(currentIndex,data[currentIndex].title))}
+        // </div>
     )
 }
 
