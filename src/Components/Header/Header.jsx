@@ -10,12 +10,14 @@ const Header = ({onChange}) => {
   return (
     <>
       <div className={styles.header}>
+
         <div className={styles.logo}>
           <img src={logo}/>
         </div>
-        <nav>nav</nav>
 
-        <select onChange={handleChange}>
+        <div className={styles.searchBar}>search</div>
+        <span>Select a genre &#8594; </span>
+        <select className={styles.custom_select} onChange={handleChange}>
           <option value="null">All</option>
           <option value="28">Action</option>
           <option value="12">Adventure</option>
@@ -27,8 +29,6 @@ const Header = ({onChange}) => {
           <option value="27">Horror</option>
           <option value="53">Thriller</option>
         </select>
-
-        <div className={styles.searchBar}>search</div>
       </div>
     </>
   );
