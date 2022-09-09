@@ -8,11 +8,10 @@ const Header = ({onChange}) => {
   };
 
   return (
-    <>
       <div className={styles.header}>
 
         <div className={styles.logo}>
-          <img src={logo}/>
+          <img alt="logo" src={logo}/>
         </div>
 
         <div className={styles.searchBar}>search</div>
@@ -30,7 +29,6 @@ const Header = ({onChange}) => {
           <option value="53">Thriller</option>
         </select>
       </div>
-    </>
   );
 };
 export default Header;

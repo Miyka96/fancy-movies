@@ -16,8 +16,36 @@
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 50px;
+    text-transform: uppercase;
     color: #FFFFFF;
     text-shadow: 1px 3px 0 #383838, 1px 13px 5px #1f1f1f;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    button{
+      display: flex;
+      align-items: center;
+      border: none;
+      background-color: rgba(36, 36, 36, 0.47);
+      padding: 10px 20px;
+      border-radius: 5px;
+      color: white;
+      text-transform: uppercase;
+      gap: 10px;
+      font-size: 15px;
+      &:hover{
+        text-shadow:(5px 5px 5px red);
+        cursor: pointer;
+        background-color: rgba(36, 36, 36, 0.60);
+      }
+      img{
+        width: 25px;
+        filter: drop-shadow(5px 5px 5px red);
+      }
+    }
+
+
   }
 }

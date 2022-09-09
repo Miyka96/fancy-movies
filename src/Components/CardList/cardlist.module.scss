@@ -5,3 +5,15 @@
     flex-wrap: wrap;
     height: max-content;
 }
+h1{
+    font-weight: 200;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 1px 3px 0 #d0d0d022, 1px 5px 5px #dbdbdb2c;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 20px 0;
+    span{
+        text-shadow:(5px 5px 5px rgb(82, 82, 82));
+        color: red;
+    }
+}
