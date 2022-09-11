@@ -1,21 +1,20 @@
 import styles from "./modal.module.scss";
 
-const Modal = ({}) => {
+const Modal = ({isVisible ,onClick}) => {
+
+  
+  const handleClick = (e) => {
+    onClick(e.target)
+  }
+
   return (
-    <div class={styles.container}>
-      <div class={styles.popup}>
-        <div class={styles.popup_inner}>
-          <div class={styles.popup__photo}>
-            <img src="" alt="" />
-          </div>
-          <div class={styles.popup__text}>
-            <h1>Lorem </h1>
-            <p>Lorem .</p>
-          </div>
-          <a class={styles.popup__close} href="#">
-            X
-          </a>
-        </div>
+    <div className={styles.modal} style={{display: isVisible === true ? 'flex' : 'none' }}>
+      <div className={styles.modal_wrapper}>
+      <i onClick={handleClick} id="close_modal">&#10006;</i>
+          <h4>{title}</h4>
+          <img alt="titolo" src={"https://image.tmdb.org/t/p/w300/"+filmData.backdrop_path}/>
+          <p>  <span className={styles.release}>{filmData.release_date}</span> <br/> paragrafo descr</p>
+          <div className={styles.rating}>Rating <span> voto/ 10 </span> </div>
       </div>
     </div>
   );

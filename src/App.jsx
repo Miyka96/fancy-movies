@@ -13,9 +13,9 @@ function App() {
   const [films, setFilms] = useState([]);
   const [topRated, setTopRated] = useState([]);
 
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  // const [open, setOpen] = useState(false);
+  // const handleOpen = () => setOpen(true);
+  // const handleClose = () => setOpen(false);
 
   useEffect(() => {
     GET("popular",page, genre)
@@ -32,7 +32,7 @@ function App() {
   return (
     <div className={styles.App}>
       <Header onChange={handleChange}/>
-      <Carousel onClick={handleOpen} data={topRated}/>
+      <Carousel data={topRated}/>
       <Main data={films} currentGenre={genreName}/>
     </div>
   );

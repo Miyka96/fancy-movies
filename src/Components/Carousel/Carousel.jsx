@@ -7,11 +7,7 @@ import {EffectFade, Autoplay, Pagination, Navigation } from "swiper";
 import styles from './carousel.module.scss'
 import icon from '../../Assets/Images/icons8-info-96.png'
 
-const Carousel = ({data, onClick}) => {
-
-    const handleClick = (e) =>{
-        onClick(e)
-    }
+const Carousel = ({data}) => {
 
     return(
         <Swiper
@@ -35,12 +31,12 @@ const Carousel = ({data, onClick}) => {
           disableOnInteraction: false,
         }}
         >
-            {data.map(item => 
-                <SwiperSlide>
+            {data.map((item,i) => 
+                <SwiperSlide key={i}>
                     <div className={styles.slideContainer}>
                         <div className={styles.slideTitle}>
                             {item.title}
-                            <button onClick={handleClick}>
+                            <button>
                                 <img src={icon} alt="See more info" />
                                 <span>info</span>
                             </button>
