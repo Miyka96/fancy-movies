@@ -20,7 +20,8 @@
     align-items: center;
     justify-content: space-around;
   }
-  .logo,.searchBar{
+  .logo,
+  .searchBar {
     margin: 0 20px;
   }
   .logo {
@@ -30,10 +31,10 @@
         drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
     }
   }
-  .searchBar{
+  .searchBar {
     flex: 1;
   }
-  .span{
+  .span {
     flex: 1;
   }
 }
@@ -54,16 +55,88 @@ select {
   font-size: 1em;
   text-transform: uppercase;
   font-weight: 200;
-  text-shadow:(5px 5px 5px red);
+  text-shadow: (5px 5px 5px red);
 }
 select::-ms-expand {
   display: none;
 }
 .custom_select {
-    position: relative;
+  position: relative;
+  display: flex;
+  line-height: 3;
+  background: #4242427d;
+  overflow: hidden;
+  border-radius: 0.25em;
+}
+.sidebar {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+}
+
+@media screen and (max-width: 765px) {
+  .hamburger {
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    cursor: pointer;
+  }
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.77);
+    filter:drop-shadow(3px 3px 2px rgba(0, 0, 0, 1));
+  }
+
+  .header {
+    display: none;
+  }
+
+  .sidebar.active {
+    padding-left: 10px;
+    padding-top: 50px;
     display: flex;
-    line-height: 3;
-    background: #4242427d;
-    overflow: hidden;
-    border-radius: .25em;
+    flex-direction: column;
+    gap: 20px;
+    height: 100vh;
+    width: 180px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(26, 26, 26, 0.8);
+    z-index: 9;
+
+
+    .logo {
+      img {
+        filter: sepia(100%) saturate(600%) invert(100%) hue-rotate(140deg)
+          brightness(65%) contrast(250%)
+          drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
+      }
+    }
+
+    .custom_select{
+      padding-left: 0;
+      background: #424242bd;
+    }
+  }
 }
