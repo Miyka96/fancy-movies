@@ -1,6 +1,6 @@
 import styles from'./App.module.scss';
 import {useState, useEffect} from 'react';
-import {GET} from './utils/api';
+import {GET, SEARCH} from './utils/api';
 import Header from './Components/Header/Header';
 import Carousel from "./Components/Carousel/Carousel";
 import Main from './Components/Main/Main';
@@ -28,12 +28,19 @@ function App() {
     setGenre(e.target.value)
     setGenreName(e.target.options[e.target.selectedIndex].text)
   }
+  const searchFilm = (e) => {
+    const query=(e);
+    if(query.length>1){
+      SEARCH(query, page)
+      .then(data=>setFilms(data.results));
+    }
+  }
 
   return (
     <div className={styles.App}>
-      <Header onChange={handleChange}/>
+      <Header onChange={handleChange} onClick={searchFilm}/>
       <Carousel data={topRated}/>
-      <Main data={films} currentGenre={genreName}/>
+      {films && <Main data={films} currentGenre={genreName}/>}
     </div>
   );
 }
